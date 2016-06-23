@@ -1,0 +1,32 @@
+{
+  "name": "ondesdupasse",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "buildRelease": "cd android && ./gradlew assembleRelease",
+    "installRelease": "cd android/app/build/outputs/apk && adb install app-release.apk"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "react": "15.1.0",
+    "react-native": "0.28.0",
+    "react-native-material-design": "^0.3.6",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-persist": "^3.2.2",
+    "redux-persist-transform-immutable": "^3.1.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2"
+  }
+}

@@ -1,0 +1,3 @@
+export default {
+	GEOLOCATION_UPDATE: 'GEOLOCATION_UPDATE',
+};

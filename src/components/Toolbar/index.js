@@ -1,43 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Toolbar as MaterialToolbar } from 'react-native-material-design';
-
+import { toggleDrawer } from '../../actions/drawer';
+import windmillsData from '../../data';
 
 class Toolbar extends Component {
-
 	constructor(props) {
 		super(props);
 		this.handleIconPress = this.handleIconPress.bind(this);
-		this.handleBadgePress = this.handleBadgePress.bind(this);
+		const windmillId = this.props.routes[this.props.index].id;
+		this.windmill = windmillsData.find((windmill) => windmill.id === windmillId);
 	}
 
 	handleIconPress() {
-		if (this.isHomePage) console.log('[TODO] Menu');
+		if (this.isHomePage) this.props.toggleDrawer();
 		else this.props.goBack();
-	}
-
-	handleBadgePress() {
-		console.log('[TODO] Badge behavior');
 	}
 
 	render() {
 		this.isHomePage = this.props.routes[this.props.index].key === 'home';
+		const color = this.windmill ? this.windmill.color : '#8c0b70';
 		return (
 			<MaterialToolbar
 				title={this.props.routes[this.props.index].title}
 				icon={this.isHomePage ? 'menu' : 'keyboard-backspace'}
 				onIconPress={this.handleIconPress}
-				actions={[{
-					icon: 'warning',
-					badge: { value: 2, animate: true },
-					onPress: this.handleBadgePress,
-				}]}
-				rightIconStyle={{
-					margin: 10
-				}}
+				style={{ backgroundColor: color }}
 			/>
 		);
 	}
 }
 
-export default connect((state) => state.nav)(Toolbar);
+
+export default connect(state => state.nav, { toggleDrawer })(Toolbar);

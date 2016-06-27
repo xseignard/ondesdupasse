@@ -10,6 +10,11 @@ import {
 } from '../../actions/nav';
 import Home from '../Home';
 import WindmillDetail from '../WindmillDetail';
+import About from '../About';
+import Team from '../Team';
+import Participants from '../Participants';
+import Thanks from '../Thanks';
+import Diaporama from '../Diaporama';
 
 const { CardStack: NavigationCardStack } = NavigationExperimental;
 
@@ -60,6 +65,21 @@ class NavRoot extends Component {
 
 			case `${p}windmillDetail`:
 				return <WindmillDetail goBack={this.handleBackAction.bind(this)} />;
+
+			case `${p}about`:
+				return <About goBack={this.handleBackAction.bind(this)} />;
+
+			case `${p}team`:
+				return <Team goBack={this.handleBackAction.bind(this)} />;
+
+			case `${p}participants`:
+				return <Participants goBack={this.handleBackAction.bind(this)} />;
+
+			case `${p}thanks`:
+				return <Thanks goBack={this.handleBackAction.bind(this)} />;
+
+			case `${p}diaporama`:
+				return <Diaporama goBack={this.handleBackAction.bind(this)} />;
 
 			default:
 				return <Home handleNavigate={this.handleNavigate.bind(this)} />;

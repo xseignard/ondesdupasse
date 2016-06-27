@@ -7,12 +7,10 @@ import {
 import Toolbar from '../Toolbar';
 import WindmillCard from '../WindmillCard';
 import styles from './styles';
-import windmillsData from '../../data/windmills';
+import windmillsData from '../../data';
 
 const Home = (props) => {
-	// const lat = props.coords ? props.coords.latitude : 'Unknown';
-	// const lng = props.coords ? props.coords.longitude : 'Unknown';
-	let windmills = windmillsData.map((windmill, index) => {
+	const windmills = windmillsData.map((windmill, index) => {
 		return (
 			<WindmillCard
 				key={index}

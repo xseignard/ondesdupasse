@@ -11,7 +11,7 @@ let watchID;
 export function startWatch() {
 	// watchID = navigator.geolocation.watchPosition(
 	// 	(position) => store.dispatch(geolocationUpdate(position),
-	// 	(error) => console.log(error),
+	// 	(error) => console.log(`[geolocator] ${error}`),
 	// 	opts
 	// );
 	watchID = setInterval(() => {
@@ -19,7 +19,7 @@ export function startWatch() {
 			(position) => {
 				store.dispatch(geolocationUpdate(position));
 			},
-			(error) => console.log(error),
+			(error) => console.log(`[geolocator] ${error}`),
 			opts
 		);
 	}, 5000);

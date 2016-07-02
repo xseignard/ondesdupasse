@@ -22,7 +22,11 @@ export default function nav(state = initialState, action) {
 			const index = state.routes.findIndex((route) => {
 				return action.route.key === route.key && action.route.title === route.title;
 			});
-			if (index > -1) state.routes.splice(index, 1);
+			if (index > -1) {
+				const clonedState = Object.assign({}, state);
+				clonedState.routes.splice(index, 1);
+				return NavigationStateUtils.push(clonedState, action.route);
+			}
 			return NavigationStateUtils.push(state, action.route);
 		}
 		case C.POP_ROUTE:
